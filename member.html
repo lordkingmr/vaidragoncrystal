@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Member Area VAI</title>
+
+<style>
+
+body{
+background:#050816;
+font-family:Arial;
+color:white;
+padding:20px;
+}
+
+.header{
+background:#111b3d;
+padding:20px;
+border-radius:15px;
+border:2px solid cyan;
+margin-bottom:20px;
+}
+
+.card{
+background:#111b3d;
+padding:20px;
+border-radius:15px;
+border:2px solid cyan;
+margin-top:15px;
+}
+
+.crystal{
+font-size:40px;
+color:cyan;
+font-weight:bold;
+}
+
+button{
+padding:12px 20px;
+margin:5px;
+border:none;
+border-radius:8px;
+background:cyan;
+cursor:pointer;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<h1>🏰 MEMBER AREA VAI</h1>
+
+<h2 id="user"></h2>
+
+</div>
+
+<div class="card">
+
+<h2>💎 Crystal Wallet</h2>
+
+<div class="crystal" id="crystal"></div>
+
+<button onclick="selesaikanMisi()">
+🎯 Selesaikan Misi
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>🎯 Misi Hari Ini</h2>
+
+<p>Login Website</p>
+<p>+10 Crystal</p>
+
+</div>
+
+<div class="card">
+
+<h2>⚙️ Akun</h2>
+
+<button onclick="logout()">
+Logout
+</button>
+
+</div>
+
+<script>
+
+let username = localStorage.getItem("username");
+
+let crystal = localStorage.getItem("crystal");
+
+if(!crystal){
+
+crystal = 100;
+
+localStorage.setItem("crystal",1000);
+
+}
+
+document.getElementById("user").innerHTML =
+"👤 "+username;
+
+document.getElementById("crystal").innerHTML =
+crystal+" Crystal";
+
+function tambahCrystal(){
+
+let crystal =
+parseInt(localStorage.getItem("crystal"));
+
+crystal += 10;
+
+localStorage.setItem("crystal",crystal);
+
+document.getElementById("crystal").innerHTML =
+crystal+" Crystal";
+
+}
+
+function logout(){
+
+localStorage.removeItem("username");
+
+alert("Logout Berhasil");
+
+window.location.href="login.html";
+
+}
+
+</script>
+
+</body>
+</html>

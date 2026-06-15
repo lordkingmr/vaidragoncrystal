@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - VAI Dragon Crystal</title>
+
+<style>
+
+body{
+    background:#050816;
+    color:white;
+    font-family:Arial;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.login-box{
+    background:#111b3d;
+    padding:40px;
+    border-radius:15px;
+    width:350px;
+    border:2px solid #00ffff;
+}
+
+h1{
+    text-align:center;
+    color:#00ffff;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#00aaff;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0088cc;
+}
+
+.info{
+    margin-top:15px;
+    text-align:center;
+    color:#ccc;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="login-box">
+
+<h1>💎 LOGIN VAI</h1>
+
+<input type="text" id="username" placeholder="Username">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">
+Masuk
+</button>
+
+<div class="info">
+VAI Dragon Crystal
+</div>
+
+</div>
+
+<script>
+
+function login(){
+
+let user = document.getElementById("username").value;
+let pass = document.getElementById("password").value;
+
+if(user=="vai" && pass=="123456"){
+
+    alert("Selamat Datang Kapten VAI!");
+
+    window.location.href="dashboard.html";
+
+}else{
+
+    alert("Username atau Password Salah");
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
