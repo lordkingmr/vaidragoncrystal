@@ -135,6 +135,81 @@ window.location.href="login.html";
 }
 
 </script>
+<h3>💎 Transfer Crystal</h3>
 
+<input type="text"
+id="targetUser"
+placeholder="Username tujuan">
+
+<input type="number"
+id="amount"
+placeholder="Jumlah Crystal">
+
+<button onclick="transferCrystal()">
+Kirim Crystal
+</button>
+<script>
+
+function transferCrystal(){
+
+let currentUser =
+localStorage.getItem("currentUser");
+
+let users =
+JSON.parse(
+localStorage.getItem("users")
+) || {};
+
+let target =
+document.getElementById(
+"targetUser"
+).value;
+
+let amount =
+parseInt(
+document.getElementById(
+"amount"
+).value
+);
+
+if(!users[target]){
+
+alert("User tidak ditemukan");
+return;
+
+}
+
+if(amount <= 0){
+
+alert("Jumlah tidak valid");
+return;
+
+}
+
+if(users[currentUser].crystal < amount){
+
+alert("Crystal tidak cukup");
+return;
+
+}
+
+users[currentUser].crystal -= amount;
+
+users[target].crystal += amount;
+
+localStorage.setItem(
+"users",
+JSON.stringify(users)
+);
+
+alert(
+"Transfer berhasil!"
+);
+
+location.reload();
+
+}
+
+</script>
 </body>
 </html>
