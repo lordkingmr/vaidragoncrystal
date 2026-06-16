@@ -62,19 +62,40 @@ Daftar
 
 function register(){
 
-alert("REGISTER BERJALAN");
+let user =
+document.getElementById("username").value;
 
-let user=document.getElementById("username").value;
-let pass=document.getElementById("password").value;
+let pass =
+document.getElementById("password").value;
 
-localStorage.setItem("username",user);
-localStorage.setItem("password",pass);
+let users =
+JSON.parse(
+localStorage.getItem("users")
+) || {};
 
-alert(user);
-alert(pass);
-alert("Akun Berhasil Dibuat");
+if(users[user]){
 
-window.location.href="member.html";
+alert("Username sudah ada");
+return;
+
+}
+
+users[user] = {
+
+password: pass,
+crystal: 1000
+
+};
+
+localStorage.setItem(
+"users",
+JSON.stringify(users)
+);
+
+alert("Akun berhasil dibuat");
+
+window.location.href =
+"login.html";
 
 }
 
