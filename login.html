@@ -86,24 +86,45 @@ VAI Dragon Crystal
 
 function login(){
 
-let user=document.getElementById("username").value;
-let pass=document.getElementById("password").value;
-let savedUser=localStorage.getItem("username");
-let savedPass=localStorage.getItem("password");
+let user =
+document.getElementById("username").value;
 
-alert(savedUser);
-alert(savedPass);
-if(user===savedUser && pass===savedPass){
+let pass =
+document.getElementById("password").value;
 
-alert("Selamat Datang Explorer!");
+let users =
+JSON.parse(
+localStorage.getItem("users")
+) || {};
 
-window.location.href="member.html";
+if(
+!users[user]
+){
 
-}else{
-
-alert("Username atau Password Salah");
+alert("User tidak ditemukan");
+return;
 
 }
+
+if(
+users[user].password
+!= pass
+){
+
+alert("Password salah");
+return;
+
+}
+
+localStorage.setItem(
+"currentUser",
+user
+);
+
+alert("Login berhasil");
+
+window.location.href =
+"member.html";
 
 }
 
