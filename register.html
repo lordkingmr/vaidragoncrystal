@@ -74,22 +74,18 @@ localStorage.getItem("users")
 ) || {};
 
 if(users[user]){
-
-alert("Username sudah ada");
-return;
-
+    alert("Username sudah ada");
+    return;
 }
 
 users[user] = {
-
-password: pass,
-crystal: 1000
-
+    password: pass,
+    crystal: 1000
 };
 
 localStorage.setItem(
-"users",
-JSON.stringify(users)
+    "users",
+    JSON.stringify(users)
 );
 
 alert("Akun berhasil dibuat");
